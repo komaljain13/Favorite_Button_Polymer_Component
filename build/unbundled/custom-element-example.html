@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>div{background:grey;}h1{color:#006064;}</style>
+    <script src="./bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+</head>
+<body>
+
+
+<template id="profileTemplate">
+    <style>div{background-color:yellow;width:auto;height:auto;}h1{color:#859900;}</style>
+    <div class="container">
+        <h1> Hello Everyone I am under Shadow DOM!!!</h1>
+        <div class="profile">
+            <div class="data">Komal Jain</div>
+            <div class="data">@komaljain1392</div>
+        </div>
+    </div>
+    <content></content>
+</template>
+
+
+
+<div>
+    <h1>Heading of Page</h1>
+    <user-profile></user-profile>
+    <h1>End of Page</h1>
+</div>
+
+
+
+<script>var template=document.querySelector("#profileTemplate"),myElementProto=Object.create(HTMLElement.prototype);myElementProto.createdCallback=function(){var e=document.querySelector("#profileTemplate"),t=this.createShadowRoot();t.appendChild(e.content.cloneNode(!0))},myElementProto.name="custom component",window.MyElement=document.registerElement("user-profile",{prototype:myElementProto});</script>
+
+
+</body></html>

@@ -8,22 +8,22 @@
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../favourite-btn.html">
+    <link rel="import" href="../custom-QrCode-generator.html">
   </head>
   <body>
 
     <test-fixture id="basic">
       <template>
-        <favourite-btn></favourite-btn>
+        <custom-QrCode-generator></custom-QrCode-generator>
       </template>
     </test-fixture>
 
     <script>
-      suite('favourite-btn', function() {
+      suite('custom-QrCode-generator', function() {
 
         test('instantiating the element works', function() {
           var element = fixture('basic');
-          assert.equal(element.is, 'favourite-btn');
+          assert.equal(element.is, 'custom-QrCode-generator');
         });
 
       });

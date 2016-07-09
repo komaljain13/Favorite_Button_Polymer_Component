@@ -1,0 +1,70 @@
+<script src="bower_components/qrjs/qr.js"></script>
+<script src="bower_components/qr-code/index.js"></script>
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<!--<link rel="import" href="../qr-code/index.js">-->
+
+
+<!--
+`custom-QrCode-generator`
+
+
+@demo demo/index.html 
+-->
+
+<dom-module id="custom-QrCode-generator" >
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+    <paper-input aria-label="Enter your Name" value="{{prop1}}"></paper-input>
+
+    <qr-code data="{{prop1}}"></qr-code>
+
+    <label for="modulesize">Module size</label>
+    <input
+            id="modulesize"
+            type="number"
+            value="5"
+            oninput="document.querySelector('qr-code').modulesize = this.value"
+            min=0
+            max=30
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            />
+    <small id="scalable">"scalable" size if set to 0</small>
+    <br>
+    <label for="margin">Margin</label>
+    <input
+            id="margin"
+            type="number"
+            value="4"
+            oninput="document.querySelector('qr-code').margin = this.value"
+            min=0
+            max=30
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            />
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'custom-QrCode-generator',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'favourite-btn',
+        }
+      },
+
+      ready: function () {
+        console.log(this)
+      }
+    });
+  </script>
+</dom-module>
